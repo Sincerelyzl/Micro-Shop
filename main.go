@@ -4,12 +4,12 @@ import (
 	"context"
 	"log"
 	"microshop/config"
+	"microshop/pkg/database"
 	"os"
 )
 
 func main() {
 	ctx := context.Background()
-	_ = ctx
 
 	//Initialize config
 	cfg := config.LoadConfig(func() string {
@@ -18,5 +18,9 @@ func main() {
 		}
 		return os.Args[1]
 	}())
-	log.Println(cfg)
+
+	//DataBase connection
+	db := database.DbConn(ctx, &cfg)
+	defer db.Disconnect(ctx)
+	log.Println(db)
 }
