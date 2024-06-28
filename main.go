@@ -5,6 +5,7 @@ import (
 	"log"
 	"microshop/config"
 	"microshop/pkg/database"
+	"microshop/server"
 	"os"
 )
 
@@ -22,5 +23,7 @@ func main() {
 	//DataBase connection
 	db := database.DbConn(ctx, &cfg)
 	defer db.Disconnect(ctx)
-	log.Println(db)
+
+	//Start server
+	server.Start(ctx, &cfg, db)
 }

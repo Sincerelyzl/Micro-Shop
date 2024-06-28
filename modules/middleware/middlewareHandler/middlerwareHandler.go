@@ -6,7 +6,7 @@ import (
 )
 
 type (
-	MiddleareHandlerService interface{}
+	MiddlewareHandlerService interface{}
 
 	middlewareHandler struct {
 		cfg               *config.Config
@@ -14,7 +14,7 @@ type (
 	}
 )
 
-func NewMiddlewareHandler(cfg *config.Config, middlewareUsecase middlewareUsecase.MiddleweareUsecaseService) MiddleareHandlerService {
+func NewMiddlewareHandler(cfg *config.Config, middlewareUsecase middlewareUsecase.MiddleweareUsecaseService) MiddlewareHandlerService {
 	return &middlewareHandler{
 		cfg:               cfg,
 		middlewareUsecase: middlewareUsecase,
