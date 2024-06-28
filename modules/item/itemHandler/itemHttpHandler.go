@@ -14,7 +14,7 @@ type (
 	}
 )
 
-func NewItemHandler(cfg *config.Config, itemUsecase itemusecase.ItemUsecaseService) ItemHttpHandlerService {
+func NewItemHttpHandler(cfg *config.Config, itemUsecase itemusecase.ItemUsecaseService) ItemHttpHandlerService {
 	return &itemHttpHandler{
 		cfg:         cfg,
 		itemUsecase: itemUsecase}
